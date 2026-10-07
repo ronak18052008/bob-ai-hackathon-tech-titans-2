@@ -2,7 +2,7 @@
 # MedBrief AI — Render Infrastructure Blueprint (render.yaml)
 # =============================================================================
 # Deploys both backend (FastAPI Web Service) and frontend (Vite Static Site)
-# with automatic service-to-service URL and CORS configuration on Render.
+# with automatic configuration on Render.
 # =============================================================================
 
 services:
@@ -23,14 +23,13 @@ services:
       - key: GEMINI_API_KEY
         sync: false  # Paste your Google Gemini API key during setup
       - key: CORS_ORIGINS
-        value: "*"   # Or set specific frontend URL once deployed
+        value: "*"   # Allows requests from deployed frontend
 
   # ── 2. Frontend Static Site (React 19 + TypeScript + Vite) ──────────────────
   - type: web
     name: medbrief-web
     runtime: static
     plan: free
-    region: oregon
     rootDir: src/frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: dist
@@ -41,7 +40,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: medbrief-api
-          property: url
+        value: https://medbrief-api.onrender.com
