@@ -39,4 +39,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://medbrief-api.onrender.com
+        value: https://medbrief-api-m16m.onrender.com
