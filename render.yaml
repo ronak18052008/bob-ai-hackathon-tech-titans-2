@@ -29,7 +29,6 @@ services:
   - type: web
     name: medbrief-web
     runtime: static
-    plan: free
     rootDir: src/frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: dist
