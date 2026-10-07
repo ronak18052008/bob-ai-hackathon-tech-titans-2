@@ -16,7 +16,7 @@ RUN npm ci
 COPY src/frontend ./
 
 # Build optimized production bundle
-ARG VITE_API_URL
+ARG VITE_API_URL=https://medbrief-api-m16m.onrender.com
 ENV VITE_API_URL=${VITE_API_URL}
 RUN npm run build
 
