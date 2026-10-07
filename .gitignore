@@ -83,10 +83,9 @@ demo/*.avi
 demo/*.mkv
 
 # ── Docker volumes / local data ───────────────────────────────────────────────
-data/
-logs/
-storage/
-src/backend/storage/
+/data/
+/logs/
+/storage/
 *.log
 *.db
 *.sqlite
