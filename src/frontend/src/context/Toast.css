@@ -1,0 +1,126 @@
+/**
+ * MedBrief AI — Clinical Toast Notifications
+ * Light clinical theme styling
+ */
+
+.clinical-toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 420px;
+  width: calc(100% - 3rem);
+  pointer-events: none;
+}
+
+.clinical-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  animation: slideToastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #0f172a;
+}
+
+@keyframes slideToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.clinical-toast.success {
+  border-left: 4px solid #059669;
+}
+
+.clinical-toast.success .toast-icon {
+  color: #059669;
+  background: #ecfdf5;
+}
+
+.clinical-toast.error {
+  border-left: 4px solid #dc2626;
+}
+
+.clinical-toast.error .toast-icon {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.clinical-toast.warning {
+  border-left: 4px solid #d97706;
+}
+
+.clinical-toast.warning .toast-icon {
+  color: #d97706;
+  background: #fffbeb;
+}
+
+.clinical-toast.info {
+  border-left: 4px solid #0284c7;
+}
+
+.clinical-toast.info .toast-icon {
+  color: #0284c7;
+  background: #e0f2fe;
+}
+
+.toast-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin-left: 0.25rem;
+  line-height: 1;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-close-btn:hover {
+  color: #0f172a;
+}
+
+@media (max-width: 480px) {
+  .clinical-toast-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+}

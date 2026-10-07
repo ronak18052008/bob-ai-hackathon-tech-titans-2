@@ -1,0 +1,2 @@
+NOT DEPLOYED — run locally using docs/setup-guide.md
+(Deployment configuration prepared: Dockerfile, docker-compose.yml, and Render/Vercel configuration provided)

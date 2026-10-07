@@ -1,0 +1,226 @@
+/* =============================================================================
+   MedBrief AI — Main Doctor Dashboard Styles
+   Step 5: Doctor Dashboard UI (Light Theme)
+   ============================================================================= */
+
+.dashboard-layout-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* prevents flex child overflow */
+}
+
+.dashboard-scroll-content {
+  flex: 1;
+  padding: 1.75rem 2rem 3rem;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Hero / Welcome Area (Section 7) */
+.dashboard-hero-banner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.hero-welcome-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hero-greeting-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-greeting-title {
+  margin: 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.hero-verified-badge {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+}
+
+.hero-subtitle-msg {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.hero-meta-col {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-state-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.25rem;
+}
+
+.state-switcher-btn {
+  background: transparent;
+  border: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.state-switcher-btn:hover {
+  color: #0f172a;
+}
+
+.state-switcher-btn.active {
+  background: #ffffff;
+  color: #0284c7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Two-column layout for Activity & Records */
+.dashboard-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Error State */
+.dashboard-error-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.error-banner-icon {
+  font-size: 2.25rem;
+}
+
+.error-banner-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.error-banner-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  max-width: 450px;
+}
+
+.error-retry-btn {
+  padding: 0.55rem 1.25rem;
+  background: #ef4444;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.error-retry-btn:hover {
+  background: #dc2626;
+}
+
+/* Search feedback bar */
+.search-active-bar {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #0284c7;
+}
+
+.clear-search-btn {
+  background: #ffffff;
+  border: 1px solid #93c5fd;
+  color: #0284c7;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.clear-search-btn:hover {
+  background: #e0f2fe;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .dashboard-split-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-scroll-content {
+    padding: 1.25rem 1rem 2.5rem;
+    gap: 1.5rem;
+  }
+  .dashboard-hero-banner {
+    padding: 1.25rem;
+  }
+  .hero-greeting-title {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,482 @@
+/**
+ * MedBrief AI — Medication Intelligence Styles
+ * Step 11: Medication + Investigation Intelligence
+ */
+
+.medications-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Card */
+.med-header-card {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.med-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.med-patient-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.patient-avatar-pill {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+
+.med-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.patient-dropdown {
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 0.875rem;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+}
+
+.btn-med-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-med-refresh:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Stats Ribbon */
+.med-stats-ribbon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+
+.med-stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: #f8fafc;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.med-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.med-stat-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.med-stat-sub {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Sub-tabs */
+.med-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+.med-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.med-tab-btn:hover {
+  color: #0f172a;
+}
+
+.med-tab-btn.active {
+  color: #0284c7;
+  border-bottom-color: #0284c7;
+}
+
+.tab-count-badge {
+  background: #e2e8f0;
+  color: #334155;
+  padding: 0.1rem 0.45rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+.med-tab-btn.active .tab-count-badge {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+/* Controls Bar */
+.med-controls-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.med-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.med-search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.med-search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+}
+
+.med-status-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.med-filter-pill {
+  padding: 0.35rem 0.75rem;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.med-filter-pill:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.med-filter-pill.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+/* Cards & Tables */
+.med-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.med-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.15s ease;
+}
+
+.med-item-card:hover {
+  border-color: #94a3b8;
+}
+
+.med-item-card.conflict-flagged {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.med-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.med-name-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.med-brand-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.med-generic-name {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-chip {
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-chip.active { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.status-chip.stopped { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+.status-chip.historical { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.status-chip.unknown { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+
+.origin-chip {
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.origin-chip.documented { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.origin-chip.derived { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+
+.med-regimen-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #334155;
+  background: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.regimen-item strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Conflict alert */
+.med-conflict-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.825rem;
+  color: #92400e;
+}
+
+/* Changes Table */
+.changes-table-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.changes-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.changes-table th {
+  background: #f8fafc;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.changes-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.change-type-pill {
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: inline-block;
+}
+
+.change-type-pill.dose_changed { background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; }
+.change-type-pill.started { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.change-type-pill.stopped { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+.change-type-pill.frequency_changed { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.change-type-pill.route_changed { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+.change-type-pill.other { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+
+.dose-transition-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.dose-prev { color: #64748b; text-decoration: line-through; }
+.dose-arrow { color: #0284c7; }
+.dose-next { color: #0f172a; font-weight: 700; }
+
+/* Source footer */
+.med-source-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.btn-text-snippet {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-text-snippet:hover {
+  text-decoration: underline;
+}
+
+.snippet-drawer {
+  background: #f8fafc;
+  border-left: 3px solid #0284c7;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.825rem;
+  color: #334155;
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
+  margin-top: 0.25rem;
+}
+
+/* Empty State */
+.med-empty-card {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.med-empty-icon { font-size: 2.5rem; }
+.med-empty-title { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin: 0; }
+.med-empty-desc { font-size: 0.875rem; color: #64748b; max-width: 500px; margin: 0; }
+
+@media (max-width: 768px) {
+  .medications-view-container { padding: 1rem; }
+  .changes-table { display: block; overflow-x: auto; }
+}

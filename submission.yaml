@@ -1,0 +1,68 @@
+# =============================================================================
+# HACKATHON SUBMISSION METADATA
+# =============================================================================
+# Instructions:
+#   - Fill in ALL required fields (marked with # REQUIRED)
+#   - Optional fields can be left as empty strings ""
+#   - Do NOT rename this file — the evaluation pipeline reads it by name
+#   - Use double quotes around all string values
+# =============================================================================
+
+team:
+  name: "Tech Titans"                  # REQUIRED — e.g., "Orion Squad"
+  track: "AI"                          # REQUIRED — one of: AI | DevOps | Sustainability | Open
+  lead:
+    name: "Ronak Marvaniya"            # REQUIRED — e.g., "Alice Chen"
+    email: "ronakmarvaniya1805@gmail.com" # REQUIRED — e.g., "alice.chen@ibm.com"
+  members:
+    - name: "Ronak Marvaniya"
+      email: "ronakmarvaniya1805@gmail.com"
+
+submission:
+  title: "MedBrief AI — Intelligent Medical Summarization"
+
+  problem_statement: >
+    Physicians spend 30-45% of their working day manually reviewing fragmented medical records spanning dozens of pages.
+    Critical medication changes, pending investigations, and conflicting diagnoses get buried, leading to cognitive fatigue,
+    delayed clinical decisions, and preventable medical oversights.
+
+  solution_summary: >
+    MedBrief AI is an assistive clinical intelligence platform that ingests unstructured medical PDFs and transforms them into
+    grounded chronological timelines, verified medication-change tracking, diagnostic status engines, auditable AI summaries,
+    and editable doctor-in-the-loop referral and discharge drafts with verifiable page citations.
+
+  key_features:
+    - "Verifiable page-grounded AI clinical summaries with zero hallucination and strict citation drawer verification"
+    - "Deterministic clinical timeline engine reconstructing chronological patient journeys with date-precision fidelity"
+    - "Medication change intelligence detecting drug starts, dose adjustments, and discontinuations without false assumptions"
+    - "Diagnostic investigation intelligence classifying tests by status and highlighting strictly pending items"
+    - "Doctor-in-the-loop clinical correspondence composer for referral, discharge, and handoff drafts with approval workflow"
+
+  tech_stack:
+    languages: ["Python", "TypeScript", "SQL"]
+    frameworks: ["FastAPI", "React", "Vite", "SQLAlchemy", "Pydantic"]
+    ibm_technologies: []
+    databases: ["PostgreSQL", "SQLite"]
+    other: ["Google Gemini API", "PyPDF", "Docker", "Pytest"]
+
+  what_we_are_most_proud_of: >
+    The strict clinical safety architecture: 100% deterministic timeline and medication diffing, zero-PHI audit logging,
+    untrusted medical data isolation defending against prompt injections, post-generation hallucination guards, and
+    interactive page-verifiable citation drawers that guarantee physicians never read an ungrounded claim.
+
+  known_limitations: >
+    OCR for handwritten cursive clinical notes requires high-resolution scans; full EHR integration (FHIR/HL7) is
+    planned for subsequent clinical integration phases.
+
+# =============================================================================
+# ARTIFACT LOCATIONS
+# These paths are relative to the repo root. Only change if you moved files.
+# =============================================================================
+artifacts:
+  source_code: "src/"
+  setup_guide: "docs/setup-guide.md"
+  architecture_doc: "docs/architecture.md"
+  demo_video: "demo/demo-video-link.txt"   # URL to hosted video (YouTube, Loom, Box)
+  live_demo: "demo/live-demo-url.txt"      # URL to deployed demo (optional)
+  screenshots: "demo/screenshots/"
+  presentation: "presentation/"

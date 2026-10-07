@@ -1,0 +1,115 @@
+/* Loading screen and RoleGuard styles */
+.auth-loading-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.auth-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.clinical-spinner-large {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: spin 0.9s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
+}
+
+.auth-loading-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Access Denied Card */
+.access-denied-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.access-denied-card {
+  max-width: 520px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #fee2e2;
+  border-radius: 14px;
+  padding: 2.25rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.access-denied-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: #dc2626;
+}
+
+.access-denied-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #991b1b;
+}
+
+.access-denied-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.access-denied-role-badge {
+  display: inline-block;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.access-denied-action-btn {
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.access-denied-action-btn:hover {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  color: #0284c7;
+}

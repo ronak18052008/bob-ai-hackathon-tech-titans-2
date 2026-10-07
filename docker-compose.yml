@@ -1,0 +1,57 @@
+# =============================================================================
+# MedBrief AI — Containerized Full-Stack Orchestration
+# Step 15: Production & Staging Deployment Configuration
+# =============================================================================
+
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: src/backend/Dockerfile
+    container_name: medbrief-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - PORT=8000
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///./medbrief_dev.db}
+      - JWT_SECRET=${JWT_SECRET:-medbrief-production-secret-change-me-2026}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000,http://localhost:5173}
+      - STORAGE_DIR=/app/storage/documents
+      - MAX_DOCUMENT_SIZE_MB=25
+    volumes:
+      - medical_storage:/app/storage/documents
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: src/frontend/Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
+    container_name: medbrief-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  medical_storage:
+    driver: local

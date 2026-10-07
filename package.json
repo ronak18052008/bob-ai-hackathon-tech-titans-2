@@ -1,0 +1,11 @@
+{
+  "name": "medbrief-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MedBrief AI - Medical Report Summarisation Assistant",
+  "scripts": {
+    "dev:frontend": "npm --prefix src/frontend run dev",
+    "build:frontend": "npm --prefix src/frontend run build",
+    "dev:backend": "uvicorn src.backend.main:app --reload --port 8000"
+  }
+}

@@ -1,0 +1,454 @@
+/* =============================================================================
+   MedBrief AI — Cinematic Branded Intro Experience Stylesheet
+   Step 1: Project Setup + Branded Intro Experience (Light Clinical Theme)
+   ============================================================================= */
+
+.medbrief-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #f8fafc;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #f8fafc 55%, #e2e8f0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.medbrief-intro-overlay.fade-out {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* ── Atmospheric Glows ── */
+.atmospheric-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.radial-core-glow {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(85vw, 680px);
+  height: min(85vw, 680px);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(10, 92, 54, 0.06) 45%, transparent 70%);
+  filter: blur(40px);
+  animation: atmospheric-breathe 8s ease-in-out infinite alternate;
+}
+
+.radial-top-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(60vw, 420px);
+  height: 250px;
+  background: radial-gradient(ellipse at center, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+}
+
+@keyframes atmospheric-breathe {
+  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+/* ── Particle Canvas ── */
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Main Stage ── */
+.intro-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* ── Narrative Tracker ── */
+.narrative-tracker {
+  height: 24px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.narrative-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #0284c7;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+/* ── Brand Emblem Component Wrapper ── */
+.brand-emblem-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brand-emblem-svg {
+  width: min(72vw, 320px);
+  height: auto;
+  max-height: 40vh;
+  filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.15));
+  overflow: visible;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── SVG Internal Groups Transition Timing ── */
+.book-group,
+.dna-group,
+.molecules-group,
+.cross-group,
+.ambient-intelligence {
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.book-group {
+  transform: translateY(12px);
+}
+.book-group.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dna-group {
+  transform: scaleY(0.75);
+  transform-origin: 250px 295px;
+}
+.dna-group.visible {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.molecules-group {
+  transform: scale(0.9);
+  transform-origin: 250px 220px;
+}
+.molecules-group.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cross-group {
+  transform: scale(0.7) translateY(10px);
+  transform-origin: 250px 100px;
+}
+.cross-group.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.ambient-intelligence {
+  transform: scale(0.85);
+  transform-origin: 250px 120px;
+}
+.ambient-intelligence.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* DNA Strand Animations */
+.dna-strand {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 0;
+  animation: dna-flow 6s ease-in-out infinite alternate;
+}
+
+@keyframes dna-flow {
+  0% { stroke-width: 3.2; }
+  50% { stroke-width: 4; }
+  100% { stroke-width: 3.2; }
+}
+
+/* Cross Pulse and Aura */
+.pulse-aura {
+  animation: aura-expand 4s ease-in-out infinite alternate;
+}
+
+@keyframes aura-expand {
+  0% { transform: scale(0.94); opacity: 0.6; }
+  100% { transform: scale(1.06); opacity: 0.9; }
+}
+
+.infinity-ribbon {
+  animation: ribbon-gleam 3s ease-in-out infinite alternate;
+}
+
+@keyframes ribbon-gleam {
+  0% { stroke: #ffffff; opacity: 0.85; }
+  100% { stroke: #fef08a; opacity: 1; }
+}
+
+/* ── Brand Typography ── */
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-text-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brand-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.brand-medbrief {
+  color: #0a5c36; /* Official MedBrief Emerald Green */
+  font-weight: 800;
+  filter: drop-shadow(0 2px 8px rgba(10, 92, 54, 0.2));
+}
+
+.brand-ai {
+  color: #d97706; /* Official MedBrief AI Warm Gold */
+  font-weight: 800;
+  filter: drop-shadow(0 2px 8px rgba(217, 119, 6, 0.25));
+}
+
+.brand-tagline {
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #1e293b; /* Official Tagline Navy/Slate */
+  margin-top: 0.45rem;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.brand-tagline.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Storytelling Pipeline Breadcrumb ── */
+.storytelling-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.storytelling-pipeline .step {
+  font-size: 0.725rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: color 0.6s ease;
+}
+
+.storytelling-pipeline .step.active {
+  color: #0284c7;
+}
+
+.storytelling-pipeline .step.active.highlight {
+  color: #0a5c36;
+  font-weight: 800;
+}
+
+.storytelling-pipeline .arrow {
+  font-size: 0.7rem;
+  color: #cbd5e1;
+}
+
+/* ── Skip Button ── */
+.intro-skip-button {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 2rem;
+  z-index: 10;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.intro-skip-button:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   ============================================================================= */
+
+/* Laptop screens */
+@media (max-width: 1024px) {
+  .brand-emblem-svg {
+    width: min(65vw, 290px);
+  }
+  .storytelling-pipeline {
+    margin-top: 1.25rem;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .brand-emblem-svg {
+    width: min(75vw, 260px);
+  }
+  .storytelling-pipeline {
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+  }
+  .storytelling-pipeline .step {
+    font-size: 0.675rem;
+  }
+  .intro-skip-button {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .intro-stage {
+    padding: 0.5rem 1rem;
+  }
+  .narrative-tracker {
+    height: 18px;
+    margin-bottom: 0.5rem;
+  }
+  .narrative-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
+  .brand-emblem-svg {
+    width: 220px;
+    max-height: 34vh;
+  }
+  .brand-title {
+    font-size: 1.85rem;
+  }
+  .brand-tagline {
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+  }
+  .storytelling-pipeline {
+    margin-top: 1rem;
+    gap: 0.25rem;
+    font-size: 0.6rem;
+  }
+  .storytelling-pipeline .step {
+    font-size: 0.6rem;
+  }
+  .intro-skip-button {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.725rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+
+/* Mobile Landscape (Short viewport height) */
+@media (max-height: 520px) and (orientation: landscape) {
+  .intro-stage {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 0.5rem;
+  }
+  .narrative-tracker {
+    display: none;
+  }
+  .storytelling-pipeline {
+    display: none;
+  }
+  .brand-emblem-svg {
+    width: 170px;
+    max-height: 65vh;
+  }
+  .brand-title {
+    font-size: 1.75rem;
+  }
+  .brand-tagline {
+    font-size: 0.65rem;
+  }
+  .intro-skip-button {
+    top: 0.75rem;
+    bottom: auto;
+    right: 1rem;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .medbrief-intro-overlay {
+    transition: opacity 0.3s ease;
+  }
+  .book-group,
+  .dna-group,
+  .molecules-group,
+  .cross-group,
+  .ambient-intelligence,
+  .brand-text-container,
+  .brand-tagline {
+    transition: opacity 0.2s ease !important;
+    transform: none !important;
+  }
+  .dna-strand,
+  .pulse-aura,
+  .infinity-ribbon,
+  .radial-core-glow {
+    animation: none !important;
+  }
+}
